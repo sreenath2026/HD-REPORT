@@ -14,7 +14,6 @@
     --amber:#c07a10;--amber-light:#fdf0d5;
     --red:#b03030;--red-light:#fdeaea;
     --teal:#0d7a8a;--teal-light:#e0f4f6;
-    --purple:#6b3fa0;--purple-light:#f0eafa;
     --text:#1a1a2e;--text-muted:#5a5a7a;--text-light:#8888a8;
     --border:#dde2ee;--bg:#f5f6fa;--white:#ffffff;
   }
@@ -27,7 +26,7 @@
   .header-text p{font-size:14px;opacity:0.75}
   .header-badge{background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);padding:6px 16px;border-radius:20px;font-size:12px;font-weight:500;white-space:nowrap}
   .nav-tabs{background:var(--navy-light);display:flex;gap:0;max-width:100%;overflow-x:auto}
-  .nav-tab{padding:14px 28px;font-size:13px;font-weight:500;color:rgba(255,255,255,0.65);cursor:pointer;border-bottom:3px solid transparent;white-space:nowrap;transition:all 0.2s}
+  .nav-tab{padding:14px 22px;font-size:13px;font-weight:500;color:rgba(255,255,255,0.65);cursor:pointer;border-bottom:3px solid transparent;white-space:nowrap;transition:all 0.2s}
   .nav-tab:hover{color:white;background:rgba(255,255,255,0.06)}
   .nav-tab.active{color:white;border-bottom-color:#EF9F27;background:rgba(255,255,255,0.08)}
   .tab-section{display:none}.tab-section.active{display:block}
@@ -51,15 +50,16 @@
   .chart-card h3{font-size:13px;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:16px}
   .chart-wrap{position:relative}
   .analysis-table{width:100%;border-collapse:collapse;font-size:13px}
-  .analysis-table th{background:var(--navy);color:white;padding:10px 14px;text-align:left;font-weight:500;font-size:12px;letter-spacing:0.3px}
+  .analysis-table th{background:var(--navy);color:white;padding:10px 14px;text-align:left;font-weight:500;font-size:12px}
   .analysis-table th:first-child{border-radius:8px 0 0 0}.analysis-table th:last-child{border-radius:0 8px 0 0}
   .analysis-table td{padding:10px 14px;border-bottom:1px solid var(--border);vertical-align:middle}
   .analysis-table tr:hover td{background:var(--navy-pale)}.analysis-table tr:last-child td{border-bottom:none}
   .pill{display:inline-block;padding:2px 9px;border-radius:10px;font-size:11px;font-weight:600}
   .pill-green{background:var(--green-light);color:var(--green)}.pill-red{background:var(--red-light);color:var(--red)}.pill-amber{background:var(--amber-light);color:var(--amber)}
+  .pill-blue{background:var(--navy-pale);color:var(--navy)}
   .bar-inline{display:flex;align-items:center;gap:8px}
   .bar-inline-track{width:80px;background:#e8edf5;border-radius:3px;height:6px}
-  .bar-inline-fill{height:100%;border-radius:3px;background:var(--navy)}.bar-inline-fill.amber{background:var(--amber)}
+  .bar-inline-fill{height:100%;border-radius:3px;background:var(--navy)}.bar-inline-fill.amber{background:var(--amber)}.bar-inline-fill.green{background:var(--green)}.bar-inline-fill.red{background:var(--red)}
   .fault-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:18px 20px;display:flex;align-items:flex-start;gap:14px}
   .fault-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
   .fault-info h4{font-size:14px;font-weight:600;color:var(--navy);margin-bottom:3px}
@@ -82,20 +82,33 @@
   .legend{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:12px}
   .legend-item{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text-muted)}
   .legend-dot{width:10px;height:10px;border-radius:2px;flex-shrink:0}
-  .eng-bar{display:flex;align-items:center;gap:8px;font-size:13px;margin-bottom:8px}
-  .eng-name{min-width:140px;color:var(--text)}
-  .eng-track{flex:1;background:var(--navy-pale);border-radius:3px;height:6px;overflow:hidden}
-  .eng-fill{height:100%;border-radius:3px;background:var(--navy)}
-  .eng-count{min-width:28px;text-align:right;color:var(--text-muted);font-size:12px}
-  .clients-table{width:100%;font-size:12px;border-collapse:collapse}
-  .clients-table td{padding:6px 0;border-bottom:0.5px solid var(--border)}
-  .clients-table td:last-child{text-align:right}
+  .eng-perf-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:20px 22px}
+  .eng-name-big{font-size:15px;font-weight:600;color:var(--navy);margin-bottom:4px}
+  .eng-role{font-size:11px;color:var(--text-light);margin-bottom:12px}
+  .eng-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:12px}
+  .eng-stat{text-align:center;background:var(--bg);border-radius:8px;padding:8px}
+  .eng-stat-val{font-size:18px;font-weight:700;color:var(--navy)}
+  .eng-stat-val.green{color:var(--green)}.eng-stat-val.amber{color:var(--amber)}.eng-stat-val.red{color:var(--red)}
+  .eng-stat-lbl{font-size:10px;color:var(--text-light);margin-top:2px}
+  .remark-quality-bar{height:8px;border-radius:4px;background:#e8edf5;overflow:hidden;margin:6px 0}
+  .remark-quality-fill{height:100%;border-radius:4px}
+  .remark-box{background:var(--bg);border-radius:8px;padding:10px 12px;margin-top:8px;font-size:12px;color:var(--text-muted);line-height:1.55;border-left:3px solid var(--border)}
+  .remark-box.good{border-left-color:var(--green);background:var(--green-light)}
+  .remark-box.bad{border-left-color:var(--red);background:var(--red-light)}
+  .remark-label{font-size:10px;font-weight:700;letter-spacing:0.5px;margin-bottom:4px;text-transform:uppercase}
+  .remark-label.good{color:var(--green)}.remark-label.bad{color:var(--red)}
+  .eng-grid-perf{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .delayed-row{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:10px}
+  .delayed-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .delayed-ref{font-size:12px;font-weight:600;color:var(--navy)}
+  .delayed-hours{font-size:20px;font-weight:700;color:var(--red)}
+  .delayed-meta{font-size:12px;color:var(--text-muted)}
   .report-footer{background:var(--navy);color:rgba(255,255,255,0.6);text-align:center;padding:20px;font-size:12px;margin-top:40px}
   .report-footer strong{color:white}
   @media(max-width:768px){
     .header-inner{flex-direction:column;padding:24px;gap:20px}
     .container{padding:24px 20px}
-    .kpi-grid,.charts-row,.charts-row-3,.charts-row-2,.rec-grid,.pending-grid,.fault-grid{grid-template-columns:1fr}
+    .kpi-grid,.charts-row,.charts-row-3,.charts-row-2,.rec-grid,.pending-grid,.fault-grid,.eng-grid-perf{grid-template-columns:1fr}
   }
 </style>
 </head>
@@ -111,46 +124,24 @@
     <div class="header-badge">H1 2026 &nbsp;·&nbsp; 487 Tickets (Deduplicated)</div>
   </div>
   <nav class="nav-tabs">
-    <div class="nav-tab active" onclick="showTab('overview')">📊 Executive Overview</div>
-    <div class="nav-tab" onclick="showTab('faults')">🔧 Fault Analysis</div>
-    <div class="nav-tab" onclick="showTab('clients')">🏢 Client KPI</div>
-    <div class="nav-tab" onclick="showTab('engineers')">👷 Engineer Performance</div>
-    <div class="nav-tab" onclick="showTab('recommendations')">💡 Recommendations</div>
+    <div class="nav-tab active" onclick="showTab('overview',this)">📊 Executive Overview</div>
+    <div class="nav-tab" onclick="showTab('faults',this)">🔧 Fault Analysis</div>
+    <div class="nav-tab" onclick="showTab('clients',this)">🏢 Client KPI</div>
+    <div class="nav-tab" onclick="showTab('engineers',this)">👷 Engineer Performance</div>
+    <div class="nav-tab" onclick="showTab('recommendations',this)">💡 Recommendations</div>
   </nav>
 </header>
 
 <!-- ===== TAB 1: OVERVIEW ===== -->
 <div id="tab-overview" class="tab-section active">
 <div class="container">
-
   <div class="data-note">⚠️ <strong>Data Correction Applied:</strong> 6 duplicate tickets removed (HD/SAT/05819, 05822, 05825, 05850, 05989, 06075). Corrected total: <strong>487 tickets</strong> (was 493). Pending corrected to <strong>150</strong> (was 156).</div>
-
   <div class="section-label">Executive Summary — Key Metrics</div>
   <div class="kpi-grid">
-    <div class="kpi-card">
-      <div class="kpi-label">Total Tickets (Corrected)</div>
-      <div class="kpi-value">487</div>
-      <div class="kpi-desc">Across 25 client organizations</div>
-      <span class="kpi-trend warn">6 duplicates removed</span>
-    </div>
-    <div class="kpi-card green">
-      <div class="kpi-label">Service Closed</div>
-      <div class="kpi-value green">337</div>
-      <div class="kpi-desc">Resolution rate: <strong>69.2%</strong></div>
-      <span class="kpi-trend good">✓ Target: ≥ 80%</span>
-    </div>
-    <div class="kpi-card amber">
-      <div class="kpi-label">Pending For Services</div>
-      <div class="kpi-value amber">150</div>
-      <div class="kpi-desc">30.8% open — growing trend</div>
-      <span class="kpi-trend up">↑ Action Required</span>
-    </div>
-    <div class="kpi-card gold">
-      <div class="kpi-label">High Priority (★★★)</div>
-      <div class="kpi-value gold">170</div>
-      <div class="kpi-desc">34.9% of all tickets critical</div>
-      <span class="kpi-trend warn">57 still pending</span>
-    </div>
+    <div class="kpi-card"><div class="kpi-label">Total Tickets (Corrected)</div><div class="kpi-value">487</div><div class="kpi-desc">Across 25 client organizations</div><span class="kpi-trend warn">6 duplicates removed</span></div>
+    <div class="kpi-card green"><div class="kpi-label">Service Closed</div><div class="kpi-value green">337</div><div class="kpi-desc">Resolution rate: <strong>69.2%</strong></div><span class="kpi-trend good">✓ Target: ≥ 80%</span></div>
+    <div class="kpi-card amber"><div class="kpi-label">Pending For Services</div><div class="kpi-value amber">150</div><div class="kpi-desc">30.8% open — growing trend</div><span class="kpi-trend up">↑ Action Required</span></div>
+    <div class="kpi-card gold"><div class="kpi-label">High Priority (★★★)</div><div class="kpi-value gold">170</div><div class="kpi-desc">34.9% of all tickets critical</div><span class="kpi-trend warn">57 still pending</span></div>
   </div>
   <div class="kpi-grid" style="margin-top:14px">
     <div class="kpi-card"><div class="kpi-label">Service Tickets</div><div class="kpi-value" style="font-size:28px">330</div><div class="kpi-desc">86% of total volume</div></div>
@@ -158,35 +149,22 @@
     <div class="kpi-card"><div class="kpi-label">Active Engineers</div><div class="kpi-value" style="font-size:28px">18</div><div class="kpi-desc">Top 4 handle 73% of volume</div></div>
     <div class="kpi-card"><div class="kpi-label">Pending Rate — May</div><div class="kpi-value amber" style="font-size:28px">58%</div><div class="kpi-desc">Highest monthly pending rate</div></div>
   </div>
-
   <div class="section-label">Monthly Performance Trend</div>
   <div class="charts-row">
     <div class="chart-card">
       <h3>Monthly Volume — Closed vs Pending</h3>
-      <div class="legend">
-        <span class="legend-item"><span class="legend-dot" style="background:#1e3a6e"></span>Service Closed</span>
-        <span class="legend-item"><span class="legend-dot" style="background:#EF9F27"></span>Pending</span>
-      </div>
-      <div class="chart-wrap" style="height:240px"><canvas id="monthlyChart" role="img" aria-label="Monthly tickets closed vs pending">Closed: Jan 88, Feb 68, Mar 49, Apr 76, May 53, Jun 3. Pending: Jan 7, Feb 11, Mar 2, Apr 39, May 74, Jun 23.</canvas></div>
+      <div class="legend"><span class="legend-item"><span class="legend-dot" style="background:#1e3a6e"></span>Closed</span><span class="legend-item"><span class="legend-dot" style="background:#EF9F27"></span>Pending</span></div>
+      <div class="chart-wrap" style="height:240px"><canvas id="monthlyChart"></canvas></div>
     </div>
     <div class="chart-card">
       <h3>Resolution Rate by Month</h3>
-      <div class="chart-wrap" style="height:240px"><canvas id="resRateChart" role="img" aria-label="Resolution rate by month">Jan 93%, Feb 86%, Mar 96%, Apr 66%, May 42%, Jun 12%.</canvas></div>
+      <div class="chart-wrap" style="height:240px"><canvas id="resRateChart"></canvas></div>
     </div>
   </div>
   <div class="charts-row-3" style="margin-top:20px">
-    <div class="chart-card">
-      <h3>Call Type Distribution</h3>
-      <div class="chart-wrap" style="height:200px"><canvas id="typeChart" role="img" aria-label="Service 330, Support Call 55">Service 330, Support Call 55.</canvas></div>
-    </div>
-    <div class="chart-card">
-      <h3>Priority Breakdown</h3>
-      <div class="chart-wrap" style="height:200px"><canvas id="priorityChart" role="img" aria-label="Standard 323, High Priority 170">Standard 323, High Priority 170.</canvas></div>
-    </div>
-    <div class="chart-card">
-      <h3>Status Split</h3>
-      <div class="chart-wrap" style="height:200px"><canvas id="statusChart" role="img" aria-label="Closed 337, Pending 150">Closed 337, Pending 150.</canvas></div>
-    </div>
+    <div class="chart-card"><h3>Call Type</h3><div class="chart-wrap" style="height:200px"><canvas id="typeChart"></canvas></div></div>
+    <div class="chart-card"><h3>Priority</h3><div class="chart-wrap" style="height:200px"><canvas id="priorityChart"></canvas></div></div>
+    <div class="chart-card"><h3>Status Split</h3><div class="chart-wrap" style="height:200px"><canvas id="statusChart"></canvas></div></div>
   </div>
 </div>
 </div>
@@ -194,99 +172,26 @@
 <!-- ===== TAB 2: FAULT ANALYSIS ===== -->
 <div id="tab-faults" class="tab-section">
 <div class="container">
-
-  <div class="section-label">Most Reported Fault Categories — 487 Tickets Analyzed</div>
+  <div class="section-label">Most Reported Fault Categories</div>
   <div class="charts-row-2">
-    <div class="chart-card">
-      <h3>Fault Category Distribution</h3>
-      <div class="chart-wrap" style="height:320px"><canvas id="faultChart" role="img" aria-label="Fault categories by volume">Top faults: Tawajud App 129, Preventive Maintenance 87, Leave Management 36, Biometric Hardware 25.</canvas></div>
-    </div>
+    <div class="chart-card"><h3>Fault Category Volume</h3><div class="chart-wrap" style="height:320px"><canvas id="faultChart"></canvas></div></div>
     <div class="chart-card">
       <h3>Pending vs Closed by Fault Type</h3>
-      <div class="legend">
-        <span class="legend-item"><span class="legend-dot" style="background:#1e3a6e"></span>Closed</span>
-        <span class="legend-item"><span class="legend-dot" style="background:#EF9F27"></span>Pending</span>
-      </div>
-      <div class="chart-wrap" style="height:320px"><canvas id="faultStatusChart" role="img" aria-label="Fault types by status">Breakdown of open vs closed by fault category.</canvas></div>
+      <div class="legend"><span class="legend-item"><span class="legend-dot" style="background:#1e3a6e"></span>Closed</span><span class="legend-item"><span class="legend-dot" style="background:#EF9F27"></span>Pending</span></div>
+      <div class="chart-wrap" style="height:320px"><canvas id="faultStatusChart"></canvas></div>
     </div>
   </div>
-
-  <div class="section-label">Fault Category Cards — Detailed Breakdown</div>
+  <div class="section-label">Fault Category Cards</div>
   <div class="fault-grid">
-    <div class="fault-card">
-      <div class="fault-icon" style="background:#fff0e8">📱</div>
-      <div class="fault-info">
-        <h4>Tawajud App Issues</h4>
-        <p>Login failures, loading screens, location errors, face recognition problems, punch buttons not showing. Affects <strong>all major clients</strong>. 41 still pending.</p>
-        <span class="kpi-trend up" style="font-size:11px;margin-top:6px;display:inline-block">41 pending · 32% open rate</span>
-      </div>
-      <div class="fault-count" style="color:#c07a10">129</div>
-    </div>
-    <div class="fault-card">
-      <div class="fault-icon" style="background:#e8f0fa">🔧</div>
-      <div class="fault-info">
-        <h4>Preventive Maintenance Visits</h4>
-        <p>Scheduled TA device visits across MoCCAE, MOJ, ADNOC, and other sites. High volume but 86% closed rate — well managed.</p>
-        <span class="kpi-trend good" style="font-size:11px;margin-top:6px;display:inline-block">12 pending · 86% closed rate</span>
-      </div>
-      <div class="fault-count">87</div>
-    </div>
-    <div class="fault-card">
-      <div class="fault-icon" style="background:#f0faf0">📋</div>
-      <div class="fault-info">
-        <h4>Leave &amp; Permission Management</h4>
-        <p>Approved leaves not reflecting, remote work issues, nursing/maternity permissions, overtime discrepancies, recalculation requests.</p>
-        <span class="kpi-trend warn" style="font-size:11px;margin-top:6px;display:inline-block">9 pending · 25% open rate</span>
-      </div>
-      <div class="fault-count" style="color:#1a7f5a">36</div>
-    </div>
-    <div class="fault-card">
-      <div class="fault-icon" style="background:#faf0fa">🖥️</div>
-      <div class="fault-info">
-        <h4>Biometric / Hardware Device Issues</h4>
-        <p>Fingerprint devices offline, card readers not working, biometric enrollment failures, device screen failures at remote locations.</p>
-        <span class="kpi-trend up" style="font-size:11px;margin-top:6px;display:inline-block">10 pending · 40% open rate</span>
-      </div>
-      <div class="fault-count">25</div>
-    </div>
-    <div class="fault-card">
-      <div class="fault-icon" style="background:#fff8e0">📊</div>
-      <div class="fault-info">
-        <h4>Report Generation Errors</h4>
-        <p>URL not found errors, daily reports not working, incorrect day/date data in reports, attendance summary reports failing.</p>
-        <span class="kpi-trend warn" style="font-size:11px;margin-top:6px;display:inline-block">7 pending · 39% open rate</span>
-      </div>
-      <div class="fault-count" style="color:#c8932a">18</div>
-    </div>
-    <div class="fault-card">
-      <div class="fault-icon" style="background:#e8f8fa">🔑</div>
-      <div class="fault-info">
-        <h4>User Account &amp; Access Issues</h4>
-        <p>Password resets, employee unable to access portal, SSL errors, new user profile creation, login failures across systems.</p>
-        <span class="kpi-trend warn" style="font-size:11px;margin-top:6px;display:inline-block">6 pending · 33% open rate</span>
-      </div>
-      <div class="fault-count">18</div>
-    </div>
-    <div class="fault-card">
-      <div class="fault-icon" style="background:#f0e8fa">🔄</div>
-      <div class="fault-info">
-        <h4>Attendance / Transaction Sync Errors</h4>
-        <p>Transactions not syncing from BioStar to ECM, missing punches, absent records despite successful punches, M2M reader sync issues.</p>
-        <span class="kpi-trend up" style="font-size:11px;margin-top:6px;display:inline-block">7 pending · 50% open rate</span>
-      </div>
-      <div class="fault-count" style="color:#b03030">14</div>
-    </div>
-    <div class="fault-card">
-      <div class="fault-icon" style="background:#e8faf4">⚙️</div>
-      <div class="fault-info">
-        <h4>System Configuration &amp; Integration</h4>
-        <p>Oracle/ECM integration issues, shift schedule configuration, database access requests, server configurations, network connectivity.</p>
-        <span class="kpi-trend good" style="font-size:11px;margin-top:6px;display:inline-block">3 pending · 79% closed rate</span>
-      </div>
-      <div class="fault-count">14</div>
-    </div>
+    <div class="fault-card"><div class="fault-icon" style="background:#fff0e8">📱</div><div class="fault-info"><h4>Tawajud App Issues</h4><p>Login failures, loading screens, location errors, face recognition problems, punch buttons not showing. Affects all major clients. 41 still pending.</p><span class="kpi-trend up" style="font-size:11px;margin-top:6px;display:inline-block">41 pending · 32% open rate</span></div><div class="fault-count" style="color:#c07a10">129</div></div>
+    <div class="fault-card"><div class="fault-icon" style="background:#e8f0fa">🔧</div><div class="fault-info"><h4>Preventive Maintenance Visits</h4><p>Scheduled TA device visits across MoCCAE, MOJ, ADNOC, and other sites. High volume but 86% closed — well managed.</p><span class="kpi-trend good" style="font-size:11px;margin-top:6px;display:inline-block">12 pending · 86% closed</span></div><div class="fault-count">87</div></div>
+    <div class="fault-card"><div class="fault-icon" style="background:#f0faf0">📋</div><div class="fault-info"><h4>Leave &amp; Permission Management</h4><p>Approved leaves not reflecting, remote work issues, nursing/maternity permissions, overtime discrepancies, recalculation requests.</p><span class="kpi-trend warn" style="font-size:11px;margin-top:6px;display:inline-block">9 pending · 25% open rate</span></div><div class="fault-count" style="color:#1a7f5a">36</div></div>
+    <div class="fault-card"><div class="fault-icon" style="background:#faf0fa">🖥️</div><div class="fault-info"><h4>Biometric / Hardware Device Issues</h4><p>Fingerprint devices offline, card readers not working, biometric enrollment failures, device screen failures at remote locations.</p><span class="kpi-trend up" style="font-size:11px;margin-top:6px;display:inline-block">10 pending · 40% open rate</span></div><div class="fault-count">25</div></div>
+    <div class="fault-card"><div class="fault-icon" style="background:#fff8e0">📊</div><div class="fault-info"><h4>Report Generation Errors</h4><p>URL not found errors, daily reports not working, incorrect day/date data, attendance summary reports failing.</p><span class="kpi-trend warn" style="font-size:11px;margin-top:6px;display:inline-block">7 pending · 39% open rate</span></div><div class="fault-count" style="color:#c8932a">18</div></div>
+    <div class="fault-card"><div class="fault-icon" style="background:#e8f8fa">🔑</div><div class="fault-info"><h4>User Account &amp; Access Issues</h4><p>Password resets, employee unable to access portal, SSL errors, new user profile creation, login failures across systems.</p><span class="kpi-trend warn" style="font-size:11px;margin-top:6px;display:inline-block">6 pending · 33% open rate</span></div><div class="fault-count">18</div></div>
+    <div class="fault-card"><div class="fault-icon" style="background:#f0e8fa">🔄</div><div class="fault-info"><h4>Attendance / Transaction Sync Errors</h4><p>Transactions not syncing from BioStar to ECM, missing punches, absent records despite successful punches.</p><span class="kpi-trend up" style="font-size:11px;margin-top:6px;display:inline-block">7 pending · 50% open rate</span></div><div class="fault-count" style="color:#b03030">14</div></div>
+    <div class="fault-card"><div class="fault-icon" style="background:#e8faf4">⚙️</div><div class="fault-info"><h4>System Configuration &amp; Integration</h4><p>Oracle/ECM integration, shift schedule config, database access, server configurations, network connectivity.</p><span class="kpi-trend good" style="font-size:11px;margin-top:6px;display:inline-block">3 pending · 79% closed</span></div><div class="fault-count">14</div></div>
   </div>
-
   <div class="section-label">Top Fault Types per Major Client</div>
   <div class="chart-card" style="padding:0;overflow:hidden">
     <table class="analysis-table">
@@ -297,8 +202,6 @@
         <tr><td><strong>Zayed Higher Organisation</strong></td><td>Tawajud App (26)</td><td>Preventive Maintenance (19)</td><td>Leave &amp; Permission (6)</td><td>71</td></tr>
         <tr><td><strong>Sheikh Zayed Grand Mosque</strong></td><td>Tawajud App (27)</td><td>General Support (10)</td><td>Leave &amp; Permission (7)</td><td>62</td></tr>
         <tr><td><strong>Environment Agency EAD</strong></td><td>Tawajud App (15)</td><td>Attendance Sync (4)</td><td>Report Errors (3)</td><td>33</td></tr>
-        <tr><td><strong>ADQCC</strong></td><td>Leave &amp; Permission (8)</td><td>Tawajud App (7)</td><td>Attendance Sync (4)</td><td>25</td></tr>
-        <tr><td><strong>ADNOC Distribution</strong></td><td>Biometric / Hardware (6)</td><td>Preventive Maintenance (5)</td><td>Attendance Sync (4)</td><td>19</td></tr>
       </tbody>
     </table>
   </div>
@@ -308,7 +211,7 @@
 <!-- ===== TAB 3: CLIENT KPI ===== -->
 <div id="tab-clients" class="tab-section">
 <div class="container">
-  <div class="section-label">Client KPI Analysis — Resolution Performance</div>
+  <div class="section-label">Client KPI Analysis</div>
   <div class="chart-card" style="padding:0;overflow:hidden">
     <table class="analysis-table">
       <thead><tr><th>Client</th><th>Total</th><th>Closed</th><th>Pending</th><th>Resolution Rate</th><th>Status</th></tr></thead>
@@ -321,188 +224,251 @@
         <tr><td>ADQCC</td><td>25</td><td>10</td><td>15</td><td><div class="bar-inline"><div class="bar-inline-track"><div class="bar-inline-fill amber" style="width:40%"></div></div>40%</div></td><td><span class="pill pill-red">Critical</span></td></tr>
         <tr><td>The Private Office</td><td>23</td><td>11</td><td>12</td><td><div class="bar-inline"><div class="bar-inline-track"><div class="bar-inline-fill amber" style="width:48%"></div></div>48%</div></td><td><span class="pill pill-red">Critical</span></td></tr>
         <tr><td>ADNOC Distribution</td><td>19</td><td>14</td><td>5</td><td><div class="bar-inline"><div class="bar-inline-track"><div class="bar-inline-fill" style="width:74%"></div></div>74%</div></td><td><span class="pill pill-amber">Needs Attention</span></td></tr>
-        <tr><td>MOHRE</td><td>16</td><td>14</td><td>2</td><td><div class="bar-inline"><div class="bar-inline-track"><div class="bar-inline-fill" style="width:88%"></div></div>88%</div></td><td><span class="pill pill-green">On Track</span></td></tr>
-        <tr><td>Zayed Bin Sultan Foundation</td><td>16</td><td>13</td><td>3</td><td><div class="bar-inline"><div class="bar-inline-track"><div class="bar-inline-fill" style="width:81%"></div></div>81%</div></td><td><span class="pill pill-green">On Track</span></td></tr>
-        <tr><td>Abu Dhabi Sports Council LE</td><td>14</td><td>12</td><td>2</td><td><div class="bar-inline"><div class="bar-inline-track"><div class="bar-inline-fill" style="width:86%"></div></div>86%</div></td><td><span class="pill pill-green">On Track</span></td></tr>
+        <tr><td>MOHRE</td><td>16</td><td>14</td><td>2</td><td><div class="bar-inline"><div class="bar-inline-track"><div class="bar-inline-fill green" style="width:88%"></div></div>88%</div></td><td><span class="pill pill-green">On Track</span></td></tr>
+        <tr><td>Zayed Bin Sultan Foundation</td><td>16</td><td>13</td><td>3</td><td><div class="bar-inline"><div class="bar-inline-track"><div class="bar-inline-fill green" style="width:81%"></div></div>81%</div></td><td><span class="pill pill-green">On Track</span></td></tr>
+        <tr><td>Abu Dhabi Sports Council</td><td>14</td><td>12</td><td>2</td><td><div class="bar-inline"><div class="bar-inline-track"><div class="bar-inline-fill green" style="width:86%"></div></div>86%</div></td><td><span class="pill pill-green">On Track</span></td></tr>
         <tr><td>Abu Dhabi Social Support Authority</td><td>12</td><td>4</td><td>8</td><td><div class="bar-inline"><div class="bar-inline-track"><div class="bar-inline-fill amber" style="width:33%"></div></div>33%</div></td><td><span class="pill pill-red">Critical</span></td></tr>
       </tbody>
     </table>
   </div>
-
-  <div class="section-label">Pending Ticket Concentration — Immediate Action Needed</div>
+  <div class="section-label">Pending Ticket Concentration</div>
   <div class="pending-grid">
-    <div class="pending-card critical"><div class="pending-count">29</div><div class="pending-name">Ministry of Justice</div><div class="pending-sub">38% pending — highest volume client</div></div>
-    <div class="pending-card critical"><div class="pending-count">26</div><div class="pending-name">Ministry of Climate Change</div><div class="pending-sub">31% pending — top ticket generator</div></div>
+    <div class="pending-card critical"><div class="pending-count">29</div><div class="pending-name">Ministry of Justice</div><div class="pending-sub">38% pending — highest volume</div></div>
+    <div class="pending-card critical"><div class="pending-count">26</div><div class="pending-name">Ministry of Climate Change</div><div class="pending-sub">31% pending — top generator</div></div>
     <div class="pending-card critical"><div class="pending-count">19</div><div class="pending-name">Environment Agency EAD</div><div class="pending-sub">58% pending rate — critical</div></div>
     <div class="pending-card"><div class="pending-count">15</div><div class="pending-name">Zayed Higher Organisation</div><div class="pending-sub">21% pending — manageable</div></div>
-    <div class="pending-card"><div class="pending-count">15</div><div class="pending-name">ADQCC</div><div class="pending-sub">60% pending rate — underserved</div></div>
+    <div class="pending-card"><div class="pending-count">15</div><div class="pending-name">ADQCC</div><div class="pending-sub">60% pending — underserved</div></div>
     <div class="pending-card watch"><div class="pending-count">13</div><div class="pending-name">Sheikh Zayed Grand Mosque</div><div class="pending-sub">21% pending — VIP client</div></div>
   </div>
 </div>
 </div>
 
-<!-- ===== TAB 4: ENGINEERS ===== -->
+<!-- ===== TAB 4: ENGINEER PERFORMANCE ===== -->
 <div id="tab-engineers" class="tab-section">
 <div class="container">
-  <div class="section-label">Engineer Workload Distribution</div>
+
+  <div class="section-label">Engineer Performance Summary — Closed Tickets Only</div>
+  <div class="kpi-grid">
+    <div class="kpi-card green"><div class="kpi-label">Best Avg Resolution Time</div><div class="kpi-value green" style="font-size:28px">Mahmoud</div><div class="kpi-desc">Avg 29.5 hrs · Consistent delivery</div><span class="kpi-trend good">Top Performer</span></div>
+    <div class="kpi-card"><div class="kpi-label">Highest Volume Closed</div><div class="kpi-value" style="font-size:28px">Asslam</div><div class="kpi-desc">87 tickets closed in H1 2026</div><span class="kpi-trend good">Most Productive</span></div>
+    <div class="kpi-card gold"><div class="kpi-label">Best Remark Quality</div><div class="kpi-value gold" style="font-size:28px">Prasob</div><div class="kpi-desc">80% quality score — detailed, clear</div><span class="kpi-trend good">Best Documentation</span></div>
+    <div class="kpi-card amber"><div class="kpi-label">Needs Improvement</div><div class="kpi-value amber" style="font-size:28px">NAHID</div><div class="kpi-desc">17% remark quality — mostly "Resolved"</div><span class="kpi-trend up">Action Required</span></div>
+  </div>
+
+  <div class="section-label">Resolution Time Analysis — Closed Tickets</div>
   <div class="charts-row-2">
     <div class="chart-card">
-      <h3>Tickets handled per engineer</h3>
-      <div class="chart-wrap" style="height:300px"><canvas id="engChart" role="img" aria-label="Engineer workload">Asslam 102, Anoop 97, Nahid 92, Zakiyya 71, Mahmoud 31, BOVY 30, Faisal 21, PARAMESHWAR 20.</canvas></div>
+      <h3>Average Resolution Time (Hours)</h3>
+      <div class="chart-wrap" style="height:300px"><canvas id="engResTimeChart"></canvas></div>
     </div>
     <div class="chart-card">
-      <h3>Workload concentration</h3>
-      <div style="margin-top:8px">
-        <div class="eng-bar"><span class="eng-name">Asslam</span><div class="eng-track"><div class="eng-fill" style="width:100%"></div></div><span class="eng-count">102</span></div>
-        <div class="eng-bar"><span class="eng-name">Anoop</span><div class="eng-track"><div class="eng-fill" style="width:95%"></div></div><span class="eng-count">97</span></div>
-        <div class="eng-bar"><span class="eng-name">Nahid Navas</span><div class="eng-track"><div class="eng-fill" style="width:90%"></div></div><span class="eng-count">92</span></div>
-        <div class="eng-bar"><span class="eng-name">Zakiyya</span><div class="eng-track"><div class="eng-fill" style="width:70%"></div></div><span class="eng-count">71</span></div>
-        <div class="eng-bar"><span class="eng-name">Mahmoud Mushtaha</span><div class="eng-track"><div class="eng-fill" style="width:30%"></div></div><span class="eng-count">31</span></div>
-        <div class="eng-bar"><span class="eng-name">BOVY</span><div class="eng-track"><div class="eng-fill" style="width:29%"></div></div><span class="eng-count">30</span></div>
-        <div class="eng-bar"><span class="eng-name">Muhammad Faisal</span><div class="eng-track"><div class="eng-fill" style="width:21%"></div></div><span class="eng-count">21</span></div>
-        <div class="eng-bar"><span class="eng-name">PARAMESHWAR</span><div class="eng-track"><div class="eng-fill" style="width:20%"></div></div><span class="eng-count">20</span></div>
-      </div>
-      <div style="margin-top:16px;padding:12px;background:#fff8e8;border-radius:8px;font-size:12px;color:#7a5a00">
-        ⚠️ <strong>Top 4 engineers handle 73% of all tickets.</strong> This creates burnout risk and a single point of failure. Redistribution recommended.
-      </div>
+      <h3>Remark Quality Score (%)</h3>
+      <div class="chart-wrap" style="height:300px"><canvas id="engQualityChart"></canvas></div>
     </div>
   </div>
+
+  <div class="section-label">Most Delayed Resolutions — Top 10 (Closed Tickets Only)</div>
+  <div class="chart-card" style="padding:0;overflow:hidden">
+    <table class="analysis-table">
+      <thead><tr><th>Ticket Ref</th><th>Engineer</th><th>Client</th><th>Resolution Time</th><th>Delay Rating</th><th>Remark</th></tr></thead>
+      <tbody>
+        <tr><td>HD/SAT/05737/26</td><td>BOVY</td><td>ADQCC</td><td><span style="color:#b03030;font-weight:700">1,157 hrs (48 days)</span></td><td><span class="pill pill-red">Severe</span></td><td>resolved</td></tr>
+        <tr><td>HD/SAT/05741/26</td><td>BOVY</td><td>ADQCC</td><td><span style="color:#b03030;font-weight:700">1,038 hrs (43 days)</span></td><td><span class="pill pill-red">Severe</span></td><td>resolved</td></tr>
+        <tr><td>HD/SAT/05857/26</td><td>NAHID NAVAS</td><td>Abu Dhabi Sports Council</td><td><span style="color:#b03030;font-weight:700">1,031 hrs (43 days)</span></td><td><span class="pill pill-red">Severe</span></td><td>Resolved</td></tr>
+        <tr><td>HD/SAT/05746/26</td><td>BOVY</td><td>ADQCC</td><td><span style="color:#b03030;font-weight:700">1,010 hrs (42 days)</span></td><td><span class="pill pill-red">Severe</span></td><td>resolved</td></tr>
+        <tr><td>HD/SAT/05744/26</td><td>NAHID NAVAS</td><td>Ministry of Justice</td><td><span style="color:#b03030;font-weight:700">1,005 hrs (42 days)</span></td><td><span class="pill pill-red">Severe</span></td><td>Resolved and sent email</td></tr>
+        <tr><td>HD/SAT/05751/26</td><td>BOVY</td><td>ADQCC</td><td><span style="color:#c07a10;font-weight:700">985 hrs (41 days)</span></td><td><span class="pill pill-red">Severe</span></td><td>Resolved</td></tr>
+        <tr><td>HD/SAT/05761/26</td><td>BOVY</td><td>Ministry of Justice</td><td><span style="color:#c07a10;font-weight:700">864 hrs (36 days)</span></td><td><span class="pill pill-amber">High</span></td><td>Resolved</td></tr>
+        <tr><td>HD/SAT/05865/26</td><td>NAHID NAVAS</td><td>Abu Dhabi Sports Council</td><td><span style="color:#c07a10;font-weight:700">843 hrs (35 days)</span></td><td><span class="pill pill-amber">High</span></td><td>Awaiting confirmation from ADSC</td></tr>
+        <tr><td>HD/SAT/05786/26</td><td>BOVY</td><td>Ministry of Justice</td><td><span style="color:#c07a10;font-weight:700">823 hrs (34 days)</span></td><td><span class="pill pill-amber">High</span></td><td>Resolved</td></tr>
+        <tr><td>HD/SAT/05784/26</td><td>BOVY</td><td>Ministry of Justice</td><td><span style="color:#c07a10;font-weight:700">817 hrs (34 days)</span></td><td><span class="pill pill-amber">High</span></td><td>resolved</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div style="background:#fdeaea;border:1px solid #f0b0b0;border-radius:8px;padding:12px 16px;margin-top:12px;font-size:12px;color:#7a2020">
+    ⚠️ <strong>BOVY</strong> accounts for 7 of the top 10 most delayed resolutions, all concentrated in ADQCC and Ministry of Justice. Despite being eventually closed, these delays directly impact client satisfaction. Immediate coaching and workload reassessment recommended.
+  </div>
+
+  <div class="section-label">Engineer Remark Quality Analysis</div>
+  <div class="eng-grid-perf">
+
+    <div class="eng-perf-card" style="border-top:3px solid #1a7f5a">
+      <div class="eng-name-big">⭐ Anoop</div>
+      <div class="eng-role">Software Support · 97 tickets · 60 closed · Avg 33h resolution</div>
+      <div class="eng-stats">
+        <div class="eng-stat"><div class="eng-stat-val">97</div><div class="eng-stat-lbl">Total Tickets</div></div>
+        <div class="eng-stat"><div class="eng-stat-val green">64%</div><div class="eng-stat-lbl">Remark Quality</div></div>
+        <div class="eng-stat"><div class="eng-stat-val">33h</div><div class="eng-stat-lbl">Avg Resolution</div></div>
+      </div>
+      <div class="remark-quality-bar"><div class="remark-quality-fill" style="width:64%;background:#1a7f5a"></div></div>
+      <div class="remark-box good"><div class="remark-label good">✅ Best Remark Example</div>"This issue occurred due to date conversion in the permission module. Multiple scenarios involved. With developer support, resolved at root level. Attaching case for employee 122393 for follow-up action."</div>
+      <div class="remark-box bad" style="margin-top:6px"><div class="remark-label bad">❌ Poor Remark Example</div>"we have resolved" / "by call we have addressed the concern" — No details of what was done, no guidance for customer, no root cause.</div>
+    </div>
+
+    <div class="eng-perf-card" style="border-top:3px solid #1a7f5a">
+      <div class="eng-name-big">⭐ Mahmoud Mushtaha</div>
+      <div class="eng-role">Software Support · 31 tickets · 22 closed · Avg 29.5h resolution</div>
+      <div class="eng-stats">
+        <div class="eng-stat"><div class="eng-stat-val">31</div><div class="eng-stat-lbl">Total Tickets</div></div>
+        <div class="eng-stat"><div class="eng-stat-val green">70%</div><div class="eng-stat-lbl">Remark Quality</div></div>
+        <div class="eng-stat"><div class="eng-stat-val">29.5h</div><div class="eng-stat-lbl">Avg Resolution</div></div>
+      </div>
+      <div class="remark-quality-bar"><div class="remark-quality-fill" style="width:70%;background:#1a7f5a"></div></div>
+      <div class="remark-box good"><div class="remark-label good">✅ Best Remark Example</div>"The mentioned has been modified after converting WorkFromHome to a leave type. All leave notifications, as per HR Team advice, shall be sent to HR along with the direct manager."</div>
+      <div class="remark-box bad" style="margin-top:6px"><div class="remark-label bad">❌ Poor Remark Example</div>"The issue has been addressed and closed in the system." — Technically acceptable but provides no information to the customer on what was actually done.</div>
+    </div>
+
+    <div class="eng-perf-card" style="border-top:3px solid #c8932a">
+      <div class="eng-name-big">⭐ Prasob</div>
+      <div class="eng-role">Field Support · 8 tickets closed · Best documentation quality</div>
+      <div class="eng-stats">
+        <div class="eng-stat"><div class="eng-stat-val">8</div><div class="eng-stat-lbl">Closed Tickets</div></div>
+        <div class="eng-stat"><div class="eng-stat-val green">80%</div><div class="eng-stat-lbl">Remark Quality</div></div>
+        <div class="eng-stat"><div class="eng-stat-val">106h</div><div class="eng-stat-lbl">Avg Resolution</div></div>
+      </div>
+      <div class="remark-quality-bar"><div class="remark-quality-fill" style="width:80%;background:#c8932a"></div></div>
+      <div class="remark-box good"><div class="remark-label good">✅ Best Remark Example</div>"One ANPR camera was offline. Found UTP cable issue — reterminated the cable. Camera is online now. Attended date: 30.04.2026." — Clear problem identification, action taken, result confirmed, date recorded.</div>
+    </div>
+
+    <div class="eng-perf-card" style="border-top:3px solid #c07a10">
+      <div class="eng-name-big">⚠️ Asslam</div>
+      <div class="eng-role">Field Support · 102 tickets · 87 closed · Avg 52h resolution</div>
+      <div class="eng-stats">
+        <div class="eng-stat"><div class="eng-stat-val">102</div><div class="eng-stat-lbl">Total Tickets</div></div>
+        <div class="eng-stat"><div class="eng-stat-val amber">58%</div><div class="eng-stat-lbl">Remark Quality</div></div>
+        <div class="eng-stat"><div class="eng-stat-val">52h</div><div class="eng-stat-lbl">Avg Resolution</div></div>
+      </div>
+      <div class="remark-quality-bar"><div class="remark-quality-fill" style="width:58%;background:#c07a10"></div></div>
+      <div class="remark-box good"><div class="remark-label good">✅ Good Example</div>"GT8 FRONT PANEL HAS BEEN REPLACED, WORKING FINE" — clear hardware action and outcome confirmed.</div>
+      <div class="remark-box bad" style="margin-top:6px"><div class="remark-label bad">❌ Repeated Pattern</div>"pm completed" appears 60+ times across tickets. While acceptable for routine maintenance, it gives zero detail to clients reviewing the ticket history.</div>
+    </div>
+
+    <div class="eng-perf-card" style="border-top:3px solid #b03030">
+      <div class="eng-name-big">🔴 NAHID NAVAS</div>
+      <div class="eng-role">Software Support · 92 tickets · 61 closed · Avg 199h resolution</div>
+      <div class="eng-stats">
+        <div class="eng-stat"><div class="eng-stat-val">92</div><div class="eng-stat-lbl">Total Tickets</div></div>
+        <div class="eng-stat"><div class="eng-stat-val red">17%</div><div class="eng-stat-lbl">Remark Quality</div></div>
+        <div class="eng-stat"><div class="eng-stat-val red">199h</div><div class="eng-stat-lbl">Avg Resolution</div></div>
+      </div>
+      <div class="remark-quality-bar"><div class="remark-quality-fill" style="width:17%;background:#b03030"></div></div>
+      <div class="remark-box bad"><div class="remark-label bad">❌ Dominant Pattern</div>"Resolved" — appears on 50+ tickets with no context, no root cause, no customer guidance. Customers reading the ticket have no idea what was done or why it happened.</div>
+      <div style="background:#fdeaea;border-radius:6px;padding:8px 10px;margin-top:8px;font-size:11px;color:#7a2020">⚠️ Also has the highest average resolution time at 199 hours (8+ days). Both remark quality and speed require urgent attention.</div>
+    </div>
+
+    <div class="eng-perf-card" style="border-top:3px solid #b03030">
+      <div class="eng-name-big">🔴 Zakiyya</div>
+      <div class="eng-role">Software Support · 71 tickets · 55 closed · Avg 106h resolution</div>
+      <div class="eng-stats">
+        <div class="eng-stat"><div class="eng-stat-val">71</div><div class="eng-stat-lbl">Total Tickets</div></div>
+        <div class="eng-stat"><div class="eng-stat-val red">20%</div><div class="eng-stat-lbl">Remark Quality</div></div>
+        <div class="eng-stat"><div class="eng-stat-val amber">106h</div><div class="eng-stat-lbl">Avg Resolution</div></div>
+      </div>
+      <div class="remark-quality-bar"><div class="remark-quality-fill" style="width:20%;background:#b03030"></div></div>
+      <div class="remark-box bad"><div class="remark-label bad">❌ Critical Examples</div>"d" (HD/SAT/06003/26) — single letter. "procedure" (HD/SAT/05991/26) — single word. "done" (HD/SAT/06026/26) — no context. These are unacceptable customer-facing remarks.</div>
+      <div class="remark-box bad" style="margin-top:6px"><div class="remark-label bad">❌ Another Example</div>"No updates from them" (HD/SAT/06077/26) — Transfers responsibility to client without documenting steps taken.</div>
+    </div>
+
+    <div class="eng-perf-card" style="border-top:3px solid #b03030">
+      <div class="eng-name-big">🔴 BOVY</div>
+      <div class="eng-role">Software Support · 30 tickets · 20 closed · Avg 527h resolution</div>
+      <div class="eng-stats">
+        <div class="eng-stat"><div class="eng-stat-val">30</div><div class="eng-stat-lbl">Total Tickets</div></div>
+        <div class="eng-stat"><div class="eng-stat-val red">25%</div><div class="eng-stat-lbl">Remark Quality</div></div>
+        <div class="eng-stat"><div class="eng-stat-val red">527h</div><div class="eng-stat-lbl">Avg Resolution</div></div>
+      </div>
+      <div class="remark-quality-bar"><div class="remark-quality-fill" style="width:25%;background:#b03030"></div></div>
+      <div class="remark-box good"><div class="remark-label good">✅ One Good Example</div>"The drive capacity has been expanded successfully. Issue resolved, reports are now functioning properly."</div>
+      <div class="remark-box bad" style="margin-top:6px"><div class="remark-label bad">❌ Concerning Examples</div>"Can't simulate the case in testing. Manually adjust the data." — Suggests workaround without root fix. "This is currently under customization." — Leaves client with no timeline or action plan.</div>
+      <div style="background:#fdeaea;border-radius:6px;padding:8px 10px;margin-top:8px;font-size:11px;color:#7a2020">⚠️ Highest average resolution time at 527 hours (22 days). Holds 7 of top 10 most-delayed tickets.</div>
+    </div>
+
+    <div class="eng-perf-card" style="border-top:3px solid #1e3a6e">
+      <div class="eng-name-big">Arun</div>
+      <div class="eng-role">Field Support · 10 tickets · 8 closed · Avg 106h resolution</div>
+      <div class="eng-stats">
+        <div class="eng-stat"><div class="eng-stat-val">10</div><div class="eng-stat-lbl">Total Tickets</div></div>
+        <div class="eng-stat"><div class="eng-stat-val green">75%</div><div class="eng-stat-lbl">Remark Quality</div></div>
+        <div class="eng-stat"><div class="eng-stat-val">106h</div><div class="eng-stat-lbl">Avg Resolution</div></div>
+      </div>
+      <div class="remark-quality-bar"><div class="remark-quality-fill" style="width:75%;background:#1e3a6e"></div></div>
+      <div class="remark-box good"><div class="remark-label good">✅ Best Remark Example</div>"We have completed PM for MOJ-HQ TA Devices / Public Prosecution TA Devices / Supreme Court TA Devices." — Location-specific, confirms completion clearly.</div>
+      <div class="remark-box bad" style="margin-top:6px"><div class="remark-label bad">❌ Poor Example</div>"Task has been assigned to Mr. Faizal" — Closing a ticket by reassigning it is not a resolution. Customer receives no outcome.</div>
+    </div>
+
+  </div>
+
+  <div class="section-label">Engineer Performance Scorecard</div>
+  <div class="chart-card" style="padding:0;overflow:hidden">
+    <table class="analysis-table">
+      <thead><tr><th>Engineer</th><th>Tickets Closed</th><th>Avg Resolution</th><th>Fastest</th><th>Slowest</th><th>Remark Quality</th><th>Overall Rating</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Prasob</strong></td><td>8</td><td>226h</td><td>44h</td><td>582h</td><td><div class="bar-inline"><div class="bar-inline-track"><div class="bar-inline-fill green" style="width:80%"></div></div>80%</div></td><td><span class="pill pill-green">⭐ Excellent</span></td></tr>
+        <tr><td><strong>Arun</strong></td><td>8</td><td>106h</td><td>1h</td><td>698h</td><td><div class="bar-inline"><div class="bar-inline-track"><div class="bar-inline-fill green" style="width:75%"></div></div>75%</div></td><td><span class="pill pill-green">⭐ Very Good</span></td></tr>
+        <tr><td><strong>Mahmoud Mushtaha</strong></td><td>22</td><td>30h</td><td>22h</td><td>50h</td><td><div class="bar-inline"><div class="bar-inline-track"><div class="bar-inline-fill green" style="width:70%"></div></div>70%</div></td><td><span class="pill pill-green">⭐ Very Good</span></td></tr>
+        <tr><td><strong>Anoop</strong></td><td>60</td><td>33h</td><td>0.1h</td><td>382h</td><td><div class="bar-inline"><div class="bar-inline-track"><div class="bar-inline-fill" style="width:64%"></div></div>64%</div></td><td><span class="pill pill-blue">Good</span></td></tr>
+        <tr><td><strong>Asslam</strong></td><td>87</td><td>52h</td><td>2h</td><td>457h</td><td><div class="bar-inline"><div class="bar-inline-track"><div class="bar-inline-fill" style="width:58%"></div></div>58%</div></td><td><span class="pill pill-blue">Good</span></td></tr>
+        <tr><td><strong>PARAMESHWAR</strong></td><td>4</td><td>4h</td><td>2h</td><td>6h</td><td><div class="bar-inline"><div class="bar-inline-track"><div class="bar-inline-fill amber" style="width:50%"></div></div>50%</div></td><td><span class="pill pill-amber">Average</span></td></tr>
+        <tr><td><strong>Zakiyya</strong></td><td>55</td><td>106h</td><td>1h</td><td>652h</td><td><div class="bar-inline"><div class="bar-inline-track"><div class="bar-inline-fill red" style="width:20%"></div></div>20%</div></td><td><span class="pill pill-red">Needs Improvement</span></td></tr>
+        <tr><td><strong>BOVY</strong></td><td>20</td><td>527h</td><td>8h</td><td>1,157h</td><td><div class="bar-inline"><div class="bar-inline-track"><div class="bar-inline-fill red" style="width:25%"></div></div>25%</div></td><td><span class="pill pill-red">Needs Improvement</span></td></tr>
+        <tr><td><strong>NAHID NAVAS</strong></td><td>61</td><td>199h</td><td>3h</td><td>1,031h</td><td><div class="bar-inline"><div class="bar-inline-track"><div class="bar-inline-fill red" style="width:17%"></div></div>17%</div></td><td><span class="pill pill-red">Needs Improvement</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
 </div>
 </div>
 
 <!-- ===== TAB 5: RECOMMENDATIONS ===== -->
 <div id="tab-recommendations" class="tab-section">
 <div class="container">
-  <div class="section-label">Strategic Recommendations — Based on Fault &amp; KPI Analysis</div>
+  <div class="section-label">Strategic Recommendations</div>
   <div class="rec-grid">
-    <div class="rec-card">
-      <h4>🎯 Fix Tawajud App — Top Priority</h4>
-      <p>Tawajud issues account for <strong>129 tickets (26% of all volume)</strong> with 41 still open. Issues span login failures, location errors, and face recognition. A dedicated app sprint with Suprema/vendor support is critical. Consider a hotfix release targeting the most reported errors across EAD, Sheikh Zayed Grand Mosque, and Zayed Higher Organisation.</p>
-      <span class="rec-tag priority-high">High Priority · 129 tickets</span>
-    </div>
-    <div class="rec-card">
-      <h4>📋 Implement SLA Tiering by Priority</h4>
-      <p>Establish formal SLA targets: High priority (★★★) resolved within <strong>24–48 hours</strong>; standard tickets within <strong>5 business days</strong>. Currently 57 high-priority tickets remain open with no defined deadline. Two tickets (HD/SAT/05861 and HD/SAT/05840) have been open <strong>111 and 118 days</strong> respectively.</p>
-      <span class="rec-tag priority-high">High Priority</span>
-    </div>
-    <div class="rec-card">
-      <h4>⚖️ Rebalance Engineer Workload</h4>
-      <p>Top 4 engineers handle <strong>73% of all tickets</strong>. Redistribute pending tickets to mid-load engineers (BOVY, Muhammad Faisal, PARAMESHWAR) who have capacity. For Tawajud-heavy clients, assign engineers with app expertise specifically.</p>
-      <span class="rec-tag priority-high">High Priority</span>
-    </div>
-    <div class="rec-card">
-      <h4>🚀 Launch Pending Ticket Closure Sprint</h4>
-      <p>Organize a <strong>2-week focused sprint</strong> to close the 150 open tickets, starting with the 5 critical clients (MOJ 29, MoCCAE 26, EAD 19, ADQCC 15, SSA 8) which hold <strong>97 combined pending tickets</strong>. Track daily closures on a shared dashboard.</p>
-      <span class="rec-tag priority-high">High Priority</span>
-    </div>
-    <div class="rec-card">
-      <h4>📚 Build a Self-Service Knowledge Base</h4>
-      <p>Attendance sync errors, leave not reflecting, and Tawajud login issues are <strong>recurring across multiple clients</strong>. A self-service FAQ covering top 10 common issues could deflect 20–30% of repeat tickets, reducing workload on engineers significantly.</p>
-      <span class="rec-tag priority-med">Medium Priority</span>
-    </div>
-    <div class="rec-card">
-      <h4>📅 Weekly Pending Ticket Reviews</h4>
-      <p>Mandate weekly reviews of all tickets open beyond <strong>7 days</strong>. Ageing reports shared with team leads every Monday. Escalation triggers at 14 days and 30 days with automatic alerts to management.</p>
-      <span class="rec-tag priority-med">Medium Priority</span>
-    </div>
-    <div class="rec-card">
-      <h4>📊 Monthly Resolution Rate Targets</h4>
-      <p>Resolution rate fell from <strong>93% in January to just 12% in June</strong>. Set a minimum monthly target of <strong>80%</strong>. Introduce automated alerts when rate drops below 70% mid-month, visible on a real-time dashboard.</p>
-      <span class="rec-tag priority-med">Medium Priority</span>
-    </div>
-    <div class="rec-card">
-      <h4>🤝 Assign Dedicated Account Engineers</h4>
-      <p>High-volume clients (MOJ, MoCCAE, Zayed Higher Organisation) generate <strong>47% of all tickets</strong>. Assign a primary and backup engineer per top-5 client to improve familiarity, reduce ramp-up time, and boost client satisfaction.</p>
-      <span class="rec-tag priority-low">Longer Term</span>
-    </div>
+    <div class="rec-card"><h4>🎯 Fix Tawajud App — Top Priority</h4><p>Tawajud issues account for <strong>129 tickets (26%)</strong> with 41 still open. A dedicated app sprint with Suprema/vendor is critical. Target login failures, location errors, and face recognition across EAD, Sheikh Zayed Grand Mosque, and Zayed Higher Organisation.</p><span class="rec-tag priority-high">High Priority · 129 tickets</span></div>
+    <div class="rec-card"><h4>📋 Implement Remark Quality Standards</h4><p>3 engineers (NAHID, Zakiyya, BOVY) consistently write single-word remarks like "Resolved", "done", or "d". Introduce a mandatory closure template: <em>Problem Identified → Action Taken → Result → Customer Guidance</em>. This directly impacts customer satisfaction and auditability.</p><span class="rec-tag priority-high">High Priority</span></div>
+    <div class="rec-card"><h4>⏱️ Address BOVY Resolution Delays</h4><p>BOVY holds 7 of the top 10 most-delayed resolutions, with tickets staying open for up to 48 days. His average resolution time is 527 hours. Immediate review of his active workload, escalation of aged tickets, and 1-on-1 performance coaching is recommended.</p><span class="rec-tag priority-high">High Priority</span></div>
+    <div class="rec-card"><h4>📋 Implement SLA Tiering</h4><p>High priority (★★★) tickets should resolve within <strong>24–48 hours</strong>; standard within <strong>5 business days</strong>. Two tickets have been open 111 and 118 days respectively. Enforce escalation alerts at 50% and 100% of SLA window.</p><span class="rec-tag priority-high">High Priority</span></div>
+    <div class="rec-card"><h4>🚀 Launch Pending Ticket Closure Sprint</h4><p>2-week focused sprint targeting 150 open tickets, starting with 5 critical clients (MOJ, MoCCAE, EAD, ADQCC, SSA) holding 97 combined open tickets. Assign dedicated engineers and track daily closures.</p><span class="rec-tag priority-high">High Priority</span></div>
+    <div class="rec-card"><h4>⚖️ Rebalance Engineer Workload</h4><p>Top 4 engineers handle 73% of all tickets. Redistribute to mid-load engineers who have capacity. For Tawajud-heavy clients, assign engineers with app expertise. PARAMESHWAR's 4h average resolution time shows clear capacity for more tickets.</p><span class="rec-tag priority-med">Medium Priority</span></div>
+    <div class="rec-card"><h4>📚 Build Knowledge Base for Recurring Issues</h4><p>Attendance sync, leave not reflecting, and Tawajud login issues repeat across multiple clients. A self-service FAQ could deflect 20–30% of repeat tickets and free engineer capacity for complex cases.</p><span class="rec-tag priority-med">Medium Priority</span></div>
+    <div class="rec-card"><h4>🤝 Assign Dedicated Account Engineers</h4><p>High-volume clients (MOJ, MoCCAE, Zayed Higher Organisation) generate 47% of tickets. Dedicate a primary and backup engineer per top-5 client to improve familiarity, reduce resolution time, and boost client satisfaction.</p><span class="rec-tag priority-low">Longer Term</span></div>
   </div>
 </div>
 </div>
 
 <footer class="report-footer">
   <p>Prepared by <strong>SAIT — Smart Artificial Intelligence Technology L.L.C</strong> &nbsp;·&nbsp; Help Desk Operations Team &nbsp;·&nbsp; Report Period: January – June 2026</p>
-  <p style="margin-top:6px">Data source: HD Key Performance Report (HDKeyperformance_7.xlsx) &nbsp;·&nbsp; 6 duplicate tickets corrected &nbsp;·&nbsp; Generated June 2026</p>
+  <p style="margin-top:6px">Data source: HD Key Performance Report &nbsp;·&nbsp; 6 duplicate tickets corrected &nbsp;·&nbsp; Engineer remark quality scored via AI analysis &nbsp;·&nbsp; Generated June 2026</p>
 </footer>
 
 <script>
-function showTab(name) {
+function showTab(name, el) {
   document.querySelectorAll('.tab-section').forEach(s => s.classList.remove('active'));
   document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
   document.getElementById('tab-' + name).classList.add('active');
-  event.target.classList.add('active');
+  el.classList.add('active');
 }
-
-const navy='#1e3a6e', amber='#EF9F27', green='#1a7f5a', gold='#c8932a';
+const navy='#1e3a6e', amber='#EF9F27', green='#1a7f5a', gold='#c8932a', red='#b03030';
 const gridC='rgba(0,0,0,0.06)', labelC='#888';
 const baseOpts = { responsive:true, maintainAspectRatio:false, plugins:{ legend:{ display:false } }, scales:{ x:{ ticks:{ color:labelC, font:{ size:11 } }, grid:{ display:false }, border:{ display:false } }, y:{ ticks:{ color:labelC, font:{ size:11 }, maxTicksLimit:5 }, grid:{ color:gridC }, border:{ display:false } } } };
 
-new Chart(document.getElementById('monthlyChart'), {
-  type:'bar',
-  data:{ labels:['Jan','Feb','Mar','Apr','May','Jun'], datasets:[
-    { label:'Closed', data:[88,68,49,76,53,3], backgroundColor:navy, barPercentage:0.7 },
-    { label:'Pending', data:[7,11,2,39,74,23], backgroundColor:amber, barPercentage:0.7 }
-  ]},
-  options:{ ...baseOpts, scales:{ ...baseOpts.scales, x:{ ...baseOpts.scales.x, stacked:true }, y:{ ...baseOpts.scales.y, stacked:true } } }
-});
+new Chart(document.getElementById('monthlyChart'), { type:'bar', data:{ labels:['Jan','Feb','Mar','Apr','May','Jun'], datasets:[{ label:'Closed', data:[88,68,49,76,53,3], backgroundColor:navy, barPercentage:0.7 },{ label:'Pending', data:[7,11,2,39,74,23], backgroundColor:amber, barPercentage:0.7 }] }, options:{ ...baseOpts, scales:{ ...baseOpts.scales, x:{ ...baseOpts.scales.x, stacked:true }, y:{ ...baseOpts.scales.y, stacked:true } } } });
+new Chart(document.getElementById('resRateChart'), { type:'line', data:{ labels:['Jan','Feb','Mar','Apr','May','Jun'], datasets:[{ label:'Resolution %', data:[93,86,96,66,42,12], borderColor:green, backgroundColor:'rgba(26,127,90,0.08)', fill:true, tension:0.4, pointBackgroundColor:green, pointRadius:5 }] }, options:{ ...baseOpts, plugins:{ ...baseOpts.plugins, tooltip:{ callbacks:{ label:c=>c.raw+'%' } } }, scales:{ ...baseOpts.scales, y:{ ...baseOpts.scales.y, min:0, max:100, ticks:{ callback:v=>v+'%', color:labelC, font:{ size:11 } }, grid:{ color:gridC }, border:{ display:false } } } } });
+new Chart(document.getElementById('typeChart'), { type:'doughnut', data:{ labels:['Service','Support Call'], datasets:[{ data:[330,55], backgroundColor:[navy,amber], borderWidth:0 }] }, options:{ responsive:true, maintainAspectRatio:false, cutout:'65%', plugins:{ legend:{ display:true, position:'bottom', labels:{ font:{ size:11 }, padding:12 } } } } });
+new Chart(document.getElementById('priorityChart'), { type:'doughnut', data:{ labels:['Standard','High Priority'], datasets:[{ data:[317,170], backgroundColor:[navy,gold], borderWidth:0 }] }, options:{ responsive:true, maintainAspectRatio:false, cutout:'65%', plugins:{ legend:{ display:true, position:'bottom', labels:{ font:{ size:11 }, padding:12 } } } } });
+new Chart(document.getElementById('statusChart'), { type:'doughnut', data:{ labels:['Closed','Pending'], datasets:[{ data:[337,150], backgroundColor:[green,amber], borderWidth:0 }] }, options:{ responsive:true, maintainAspectRatio:false, cutout:'65%', plugins:{ legend:{ display:true, position:'bottom', labels:{ font:{ size:11 }, padding:12 } } } } });
+new Chart(document.getElementById('faultChart'), { type:'bar', data:{ labels:['Tawajud App','Prev. Maint.','Leave & Permission','Biometric/HW','Report Errors','User Access','Attend. Sync','Sys Config'], datasets:[{ label:'Tickets', data:[129,87,36,25,18,18,14,14], backgroundColor:[amber,navy,green,'#6b3fa0',gold,'#0d7a8a',red,navy], borderRadius:4 }] }, options:{ ...baseOpts, indexAxis:'y' } });
+new Chart(document.getElementById('faultStatusChart'), { type:'bar', data:{ labels:['Tawajud App','Prev. Maint.','Leave/Perm','Biometric','Report Err','User Access','Attend Sync','Sys Config'], datasets:[{ label:'Closed', data:[88,75,27,15,11,12,7,11], backgroundColor:navy, barPercentage:0.7 },{ label:'Pending', data:[41,12,9,10,7,6,7,3], backgroundColor:amber, barPercentage:0.7 }] }, options:{ ...baseOpts, scales:{ ...baseOpts.scales, x:{ ...baseOpts.scales.x, stacked:true, ticks:{ color:labelC, font:{ size:10 }, maxRotation:30 } }, y:{ ...baseOpts.scales.y, stacked:true } } } });
 
-new Chart(document.getElementById('resRateChart'), {
-  type:'line',
-  data:{ labels:['Jan','Feb','Mar','Apr','May','Jun'], datasets:[{
-    label:'Resolution %', data:[93,86,96,66,42,12],
-    borderColor:green, backgroundColor:'rgba(26,127,90,0.08)', fill:true, tension:0.4,
-    pointBackgroundColor:green, pointRadius:5
-  }]},
-  options:{ ...baseOpts, plugins:{ ...baseOpts.plugins, tooltip:{ callbacks:{ label:c=>c.raw+'%' } } }, scales:{ ...baseOpts.scales, y:{ ...baseOpts.scales.y, min:0, max:100, ticks:{ callback:v=>v+'%', color:labelC, font:{ size:11 } }, grid:{ color:gridC }, border:{ display:false } } } }
-});
+const engNames = ['Mahmoud','Anoop','Asslam','Zakiyya','NAHID NAVAS','BOVY','Arun','Prasob','PARAMESHWAR'];
+const engTimes = [29.5, 33.3, 52.4, 106.1, 199.4, 526.5, 105.9, 225.3, 3.8];
+const engColors = engTimes.map(t => t < 50 ? green : t < 150 ? amber : red);
+new Chart(document.getElementById('engResTimeChart'), { type:'bar', data:{ labels:engNames, datasets:[{ label:'Avg Hours', data:engTimes, backgroundColor:engColors, borderRadius:4 }] }, options:{ ...baseOpts, indexAxis:'y', plugins:{ ...baseOpts.plugins, tooltip:{ callbacks:{ label:c=>c.raw+'h avg resolution' } } }, scales:{ x:{ ...baseOpts.scales.x, grid:{ color:gridC } }, y:{ ticks:{ color:labelC, font:{ size:11 } }, grid:{ display:false }, border:{ display:false } } } } });
 
-new Chart(document.getElementById('typeChart'), {
-  type:'doughnut',
-  data:{ labels:['Service','Support Call'], datasets:[{ data:[330,55], backgroundColor:[navy,amber], borderWidth:0 }] },
-  options:{ responsive:true, maintainAspectRatio:false, cutout:'65%', plugins:{ legend:{ display:true, position:'bottom', labels:{ font:{ size:11 }, padding:12 } } } }
-});
-
-new Chart(document.getElementById('priorityChart'), {
-  type:'doughnut',
-  data:{ labels:['Standard','High Priority'], datasets:[{ data:[317,170], backgroundColor:[navy,gold], borderWidth:0 }] },
-  options:{ responsive:true, maintainAspectRatio:false, cutout:'65%', plugins:{ legend:{ display:true, position:'bottom', labels:{ font:{ size:11 }, padding:12 } } } }
-});
-
-new Chart(document.getElementById('statusChart'), {
-  type:'doughnut',
-  data:{ labels:['Service Closed','Pending'], datasets:[{ data:[337,150], backgroundColor:[green,amber], borderWidth:0 }] },
-  options:{ responsive:true, maintainAspectRatio:false, cutout:'65%', plugins:{ legend:{ display:true, position:'bottom', labels:{ font:{ size:11 }, padding:12 } } } }
-});
-
-const faultLabels = ['Tawajud App','Preventive Maint.','Leave & Permission','Biometric/Hardware','Report Errors','User Access','Attendance Sync','System Config','Data Migration','Notification'];
-const faultData = [129,87,36,25,18,18,14,14,6,3];
-const faultColors = ['#c07a10','#1e3a6e','#1a7f5a','#6b3fa0','#c8932a','#0d7a8a','#b03030','#1e3a6e','#888','#aaa'];
-
-new Chart(document.getElementById('faultChart'), {
-  type:'bar',
-  data:{ labels:faultLabels, datasets:[{ label:'Tickets', data:faultData, backgroundColor:faultColors, borderRadius:4 }] },
-  options:{ ...baseOpts, indexAxis:'y', scales:{ x:{ ...baseOpts.scales.x, grid:{ color:gridC } }, y:{ ticks:{ color:labelC, font:{ size:11 } }, grid:{ display:false }, border:{ display:false } } } }
-});
-
-new Chart(document.getElementById('faultStatusChart'), {
-  type:'bar',
-  data:{
-    labels:['Tawajud App','Prev. Maint.','Leave/Perm','Biometric','Report Err','User Access','Attend Sync','Sys Config'],
-    datasets:[
-      { label:'Closed', data:[88,75,27,15,11,12,7,11], backgroundColor:navy, barPercentage:0.7 },
-      { label:'Pending', data:[41,12,9,10,7,6,7,3], backgroundColor:amber, barPercentage:0.7 }
-    ]
-  },
-  options:{ ...baseOpts, scales:{ ...baseOpts.scales, x:{ ...baseOpts.scales.x, stacked:true, ticks:{ color:labelC, font:{ size:10 }, maxRotation:30 } }, y:{ ...baseOpts.scales.y, stacked:true } } }
-});
-
-new Chart(document.getElementById('engChart'), {
-  type:'bar',
-  data:{
-    labels:['Asslam','Anoop','Nahid Navas','Zakiyya','Mahmoud','BOVY','M. Faisal','PARAMESHWAR'],
-    datasets:[{ label:'Tickets', data:[102,97,92,71,31,30,21,20], backgroundColor:[navy,navy,navy,navy,amber,amber,amber,amber], borderRadius:4 }]
-  },
-  options:{ ...baseOpts, indexAxis:'y', scales:{ x:{ ...baseOpts.scales.x, grid:{ color:gridC } }, y:{ ticks:{ color:labelC, font:{ size:12 } }, grid:{ display:false }, border:{ display:false } } } }
-});
+const qualNames = ['Prasob','Arun','Mahmoud','Anoop','Asslam','PARAMESHWAR','BOVY','Zakiyya','NAHID NAVAS'];
+const qualScores = [80,75,70,64,58,50,25,20,17];
+const qualColors = qualScores.map(s => s >= 70 ? green : s >= 50 ? amber : red);
+new Chart(document.getElementById('engQualityChart'), { type:'bar', data:{ labels:qualNames, datasets:[{ label:'Quality %', data:qualScores, backgroundColor:qualColors, borderRadius:4 }] }, options:{ ...baseOpts, indexAxis:'y', plugins:{ ...baseOpts.plugins, tooltip:{ callbacks:{ label:c=>c.raw+'% remark quality' } } }, scales:{ x:{ ...baseOpts.scales.x, max:100, grid:{ color:gridC }, ticks:{ callback:v=>v+'%', color:labelC, font:{ size:11 } } }, y:{ ticks:{ color:labelC, font:{ size:11 } }, grid:{ display:false }, border:{ display:false } } } } });
 </script>
 </body>
 </html>
